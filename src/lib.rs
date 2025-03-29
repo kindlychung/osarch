@@ -10,6 +10,6 @@ pub fn current_os_arch() -> Regex {
     } else if arch == "arm" {
         arch = "(arm|armv7)";
     }
-    let regex = format!("(?i){}.*{}.*", os, arch);
+    let regex = format!("(?i)({}.*{}|{}.*{})", os, arch, arch, os);
     Regex::new(&regex).unwrap()
 }
